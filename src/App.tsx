@@ -135,22 +135,22 @@ function App() {
         <Card.Wrapper variant="sm">
           <Card.Title text="Bookmarks" />
           <Bookmarks.Wrapper>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={YoutubeLogo} text="Youtube" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={GithubLogo} text="Github" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={Star} text="Star+" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={InstagramLogo} text="Instagram" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={DiscordLogo} text="Discord" />
             </a>
-            <a href="" target="_blank">
+            <a href="" target="_blank" className="focus:outline-none bookmark">
               <Bookmarks.Button icon={TwitchLogo} text="Twitch" />
             </a>
           </Bookmarks.Wrapper>
@@ -223,6 +223,7 @@ function App() {
                       icon={Play}
                       text="Play"
                       iconSide={true}
+                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-violet-500 text-violet-50 hover:bg-violet-600 hover:text-violet-200 flex items-center justify-center gap-2 pomodorobtn"
                       onClick={() => {
                         setPomodoroActive(true);
                       }}
@@ -232,7 +233,7 @@ function App() {
                       icon={Pause}
                       text="Pause"
                       iconSide={true}
-                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-amber-500 text-amber-50 hover:bg-amber-600 hover:text-amber-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
+                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-amber-500 text-amber-50 hover:bg-amber-600 hover:text-amber-200 flex items-center justify-center gap-2 pomodorobtn"
                       onClick={() => {
                         setPomodoroActive(false);
                       }}
@@ -242,7 +243,7 @@ function App() {
                     icon={Stop}
                     text="Stop"
                     iconSide={true}
-                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-red-500 text-red-50 hover:bg-red-600 hover:text-red-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
+                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-red-500 text-red-50 hover:bg-red-600 hover:text-red-200 flex items-center justify-center gap-2 pomodorobtn"
                     onClick={() => {
                       setPomodoroActive(false);
                       setTimeout(() => {
@@ -262,6 +263,7 @@ function App() {
                       iconWeight="bold"
                       text="Repeat"
                       iconSide={false}
+                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-violet-500 text-violet-50 hover:bg-violet-600 hover:text-violet-200 flex items-center justify-center gap-2 pomodorobtn"
                       onClick={() => setFocusRepeat(true)}
                     />
                   ) : (
@@ -270,7 +272,7 @@ function App() {
                       iconWeight="fill"
                       text="Repeat"
                       iconSide={false}
-                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-amber-500 text-amber-50 hover:bg-amber-600 hover:text-amber-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
+                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-amber-500 text-amber-50 hover:bg-amber-600 hover:text-amber-200 flex items-center justify-center gap-2 pomodorobtn"
                       onClick={() => setFocusRepeat(false)}
                     />
                   )}
@@ -278,7 +280,7 @@ function App() {
                     icon={Broom}
                     text="Clear"
                     iconSide={true}
-                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-teal-500 text-teal-50 hover:bg-teal-600 hover:text-teal-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
+                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-teal-500 text-teal-50 hover:bg-teal-600 hover:text-teal-200 flex items-center justify-center gap-2 pomodorobtn"
                     onClick={() => setFocusTimes(0)}
                   />
                 </div>
@@ -313,7 +315,11 @@ function App() {
               <Authors.Name name="pulse" />
               <Authors.Icons>
                 <Authors.Icon icon={Moon} variant="fill" author={true} />
-                <a href="https://github.com/pabloalbrnz" target="_blank">
+                <a
+                  href="https://github.com/pabloalbrnz"
+                  target="_blank"
+                  className="author rounded-3xl"
+                >
                   <Authors.Icon icon={GithubLogo} variant="bold" />
                 </a>
               </Authors.Icons>
@@ -322,7 +328,11 @@ function App() {
               <Authors.Name name="Paulo" />
               <Authors.Icons>
                 <Authors.Icon icon={Code} variant="bold" author={true} />
-                <a href="https://github.com/Paulo-Augusto12" target="_blank">
+                <a
+                  href="https://github.com/Paulo-Augusto12"
+                  target="_blank"
+                  className="author rounded-3xl"
+                >
                   <Authors.Icon icon={GithubLogo} variant="bold" />
                 </a>
               </Authors.Icons>
@@ -340,24 +350,40 @@ function App() {
                   author={true}
                   text="pulse"
                 />
-                <a href="mailto:pabloalbernazrincon@gmail.com" target="_blank">
+                <a
+                  href="mailto:pabloalbernazrincon@gmail.com"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon icon={Envelope} variant="bold" text="Email" />
                 </a>
-                <a href="https://discord.com/invite/ErJHvmG99p" target="_blank">
+                <a
+                  href="https://discord.com/invite/ErJHvmG99p"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={DiscordLogo}
                     variant="bold"
                     text="Discord"
                   />
                 </a>
-                <a href="https://instagram.com/pabloalbrnz" target="_blank">
+                <a
+                  href="https://instagram.com/pabloalbrnz"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={InstagramLogo}
                     variant="bold"
                     text="Instagram"
                   />
                 </a>
-                <a href="https://linkedin.com/in/pabloalbrnz" target="_blank">
+                <a
+                  href="https://linkedin.com/in/pabloalbrnz"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={LinkedinLogo}
                     variant="bold"
@@ -374,24 +400,40 @@ function App() {
                   author={true}
                   text="Paulo"
                 />
-                <a href="mailto:" target="_blank">
+                <a
+                  href="mailto:"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon icon={Envelope} variant="bold" text="Email" />
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="#"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={DiscordLogo}
                     variant="bold"
                     text="Discord"
                   />
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="#"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={InstagramLogo}
                     variant="bold"
                     text="Instagram"
                   />
                 </a>
-                <a href="#" target="_blank">
+                <a
+                  href="#"
+                  target="_blank"
+                  className="contact focus:outline-none"
+                >
                   <Contact.Icon
                     icon={LinkedinLogo}
                     variant="bold"

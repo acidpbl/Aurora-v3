@@ -13,3 +13,7 @@
   user-select: none;
   text-decoration: none;
 }
+
+.bookmark:focus div div, .author:focus, .contact:focus div svg, .pomodorobtn:focus {
+  outline: 4px solid theme("colors.violet.600");
+}
