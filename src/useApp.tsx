@@ -1,11 +1,29 @@
 import { useState } from "react";
 import { getWeatherData, IGetWeatherDataResponse } from "./data/getWeatherData";
 
+interface QuoteProps {
+  quote: string;
+  character: string;
+  title: string;
+}
+
 export function useApp() {
   const [city, setCity] = useState("");
   const [weatherData, setWheatherData] = useState<IGetWeatherDataResponse>();
   const [helperText, setHelperText] = useState("");
   const [errorText, setErrorText] = useState("");
+
+  const [quoteData, setQuoteData] = useState<QuoteProps | null>(null);
+
+  async function fetchQuote() {
+    try {
+      const response = await fetch("https://www.ultima.rest/api/random");
+      const data = await response.json();
+      setQuoteData(data);
+    } catch (error) {
+      console.error("Error fetching quote:", error);
+    }
+  }
 
   function resetHelperText() {
     setHelperText("");
@@ -41,11 +59,13 @@ export function useApp() {
       helperText,
       setWheatherData,
       errorText,
+      quoteData,
     },
     actions: {
       getCityWeather,
       resetHelperText,
       resetErrorText,
+      fetchQuote,
     },
   };
 }

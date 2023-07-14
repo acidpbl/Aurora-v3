@@ -12,8 +12,11 @@ import {
   Moon,
   Pause,
   Play,
+  Star,
   Stop,
+  TwitchLogo,
   WarningCircle,
+  YoutubeLogo,
 } from "@phosphor-icons/react";
 
 import { Card } from "./components/Card";
@@ -28,8 +31,12 @@ import { useEffect, useState } from "react";
 import { Authors } from "./components/Authors";
 import { Contact } from "./components/Contact";
 import { Pomodoro } from "./components/Pomodoro";
+import { Quote } from "./components/Quote";
+import { Bookmarks } from "./components/Bookmarks";
 
 function App() {
+  let pageLoad = 0;
+
   const [pomodoroTime, setPomodoroTime] = useState(25 * 60);
   const [pomodoroProgress, setPomodoroProgress] = useState(0);
   const [pomodoroActive, setPomodoroActive] = useState(false);
@@ -89,9 +96,65 @@ function App() {
 
   const [calendarNav, setCalendarNav] = useState(0);
   const { actions, states } = useApp();
+
+  useEffect(() => {
+    actions.fetchQuote();
+  }, [pageLoad]);
+
   return (
     <>
       <div className="w-full h-full p-4 flex flex-wrap justify-center gap-4">
+        <Card.Wrapper variant="md">
+          <Card.Title text="Quote" />
+          <Quote.Wrapper>
+            <Quote.Quote
+              quoteData={{
+                quote: states.quoteData?.quote || "Some quote here",
+                character: states.quoteData?.character || "Some character",
+                title: states.quoteData?.title || "Some game",
+              }}
+            />
+            <div className="flex items-center justify-between w-full">
+              <Quote.Character
+                quoteData={{
+                  quote: states.quoteData?.quote || "Some quote here",
+                  character: states.quoteData?.character || "Some character",
+                  title: states.quoteData?.title || "Some game",
+                }}
+              />
+              <Quote.Game
+                quoteData={{
+                  quote: states.quoteData?.quote || "Some quote here",
+                  character: states.quoteData?.character || "Some character",
+                  title: states.quoteData?.title || "Some game",
+                }}
+              />
+            </div>
+          </Quote.Wrapper>
+        </Card.Wrapper>
+        <Card.Wrapper variant="sm">
+          <Card.Title text="Bookmarks" />
+          <Bookmarks.Wrapper>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={YoutubeLogo} text="Youtube" />
+            </a>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={GithubLogo} text="Github" />
+            </a>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={Star} text="Star+" />
+            </a>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={InstagramLogo} text="Instagram" />
+            </a>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={DiscordLogo} text="Discord" />
+            </a>
+            <a href="" target="_blank">
+              <Bookmarks.Button icon={TwitchLogo} text="Twitch" />
+            </a>
+          </Bookmarks.Wrapper>
+        </Card.Wrapper>
         <Card.Wrapper variant="sm">
           <Card.Title text="Calendar" />
           <Calendar.Wrapper>
