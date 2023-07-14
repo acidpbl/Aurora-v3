@@ -39,7 +39,7 @@ function App() {
   const [focusTimes, setFocusTimes] = useState(0);
 
   useEffect(() => {
-    const progressPercentage = (pomodoroTime / 25) * 60 * 100;
+    const progressPercentage = (pomodoroTime / (25 * 60)) * 100;
     setPomodoroProgress(progressPercentage);
 
     if (pomodoroActive === true) {
@@ -62,7 +62,7 @@ function App() {
   const [chillActive, setChillActive] = useState(false);
 
   useEffect(() => {
-    const chillPercentage = (chillTime / 5) * 60 * 100;
+    const chillPercentage = (chillTime / (5 * 60)) * 100;
     setChillProgress(chillPercentage);
 
     if (chillActive === true && pomodoroActive === false) {
@@ -152,9 +152,9 @@ function App() {
                 }
               />
             </div>
-            <div className="flex flex-col w-[19rem] h-full pb-6 gap-1">
+            <div className="flex flex-col w-[19rem] h-full pb-6 gap-[0.5rem]">
               <Pomodoro.Buttons>
-                <div className="w-full h-full flex items-center justify-around">
+                <div className="w-[17rem] self-center h-full flex items-center justify-around">
                   {!pomodoroActive === true ? (
                     <Pomodoro.Button
                       icon={Play}
@@ -169,6 +169,7 @@ function App() {
                       icon={Pause}
                       text="Pause"
                       iconSide={true}
+                      className="py-3 w-24 rounded-lg transition-all ease-linear bg-amber-500 text-amber-50 hover:bg-amber-600 hover:text-amber-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
                       onClick={() => {
                         setPomodoroActive(false);
                       }}
@@ -178,19 +179,20 @@ function App() {
                     icon={Stop}
                     text="Stop"
                     iconSide={true}
+                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-red-500 text-red-50 hover:bg-red-600 hover:text-red-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
                     onClick={() => {
                       setPomodoroActive(false);
                       setTimeout(() => {
-                        setPomodoroTime(30);
+                        setPomodoroTime(25 * 60);
                       }, 1000);
                       setChillActive(false);
                       setTimeout(() => {
-                        setChillTime(30);
+                        setChillTime(5 * 60);
                       }, 1000);
                     }}
                   />
                 </div>
-                <div className="w-full h-full flex items-center justify-around">
+                <div className="w-[17rem] self-center h-full flex items-center justify-around">
                   {!focusRepeat === true ? (
                     <Pomodoro.Button
                       icon={Circle}
@@ -213,12 +215,13 @@ function App() {
                     icon={Broom}
                     text="Clear"
                     iconSide={true}
+                    className="py-3 w-24 rounded-lg transition-all ease-linear bg-teal-500 text-teal-50 hover:bg-teal-600 hover:text-teal-200 flex items-center justify-center gap-2 focus:outline-violet-800 focus:outline-4"
                     onClick={() => setFocusTimes(0)}
                   />
                 </div>
               </Pomodoro.Buttons>
-              <div className="flex flex-col items-center justify-center rounded-xl bg-violet-200 py-8 gap-2">
-                <span className="text-3xl font-bold">{focusTimes}</span>
+              <div className="w-[17rem] self-center flex flex-col items-center justify-center rounded-xl bg-violet-200 py-6 gap-2 transition-all ease-linear text-zinc-950 hover:bg-violet-300 hover:text-violet-800">
+                <span className="text-5xl font-bold">{focusTimes}</span>
                 <span className="text-xl">times focused</span>
               </div>
             </div>
