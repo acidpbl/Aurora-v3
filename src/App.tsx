@@ -19,6 +19,9 @@ import {
   YoutubeLogo,
 } from "@phosphor-icons/react";
 
+import notPomodoro from "./audios/notification_pomodoro.mp3";
+import notChill from "./audios/notification_chill.mp3";
+
 import { Card } from "./components/Card";
 import { Clock } from "./components/Clock";
 import { Weather } from "./components/Weather/index";
@@ -35,6 +38,10 @@ import { Quote } from "./components/Quote";
 import { Bookmarks } from "./components/Bookmarks";
 
 function App() {
+  function play(audio: string) {
+    new Audio(audio).play();
+  }
+
   let pageLoad = 0;
 
   const [pomodoroTime, setPomodoroTime] = useState(25 * 60);
@@ -57,6 +64,7 @@ function App() {
         }, 5000);
         setChillActive(true);
         setFocusTimes((state) => state + 1);
+        play(notPomodoro);
       }
       setTimeout(() => {
         setPomodoroTime((state) => state - 1);
@@ -67,17 +75,18 @@ function App() {
   const [chillTime, setChillTime] = useState(5 * 60);
   const [chillProgress, setChillProgress] = useState(0);
   const [chillActive, setChillActive] = useState(false);
-
+  
   useEffect(() => {
     const chillPercentage = (chillTime / (5 * 60)) * 100;
     setChillProgress(chillPercentage);
-
+    
     if (chillActive === true && pomodoroActive === false) {
       if (chillTime === 1) {
         setChillActive(false);
         setTimeout(() => {
           setChillTime(5 * 60);
         }, 5000);
+        play(notChill);
         if (focusRepeat) {
           setPomodoroActive(true);
         }
