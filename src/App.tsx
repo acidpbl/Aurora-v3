@@ -108,6 +108,7 @@ function App() {
           <Card.Title text="Quote" />
           <Quote.Wrapper>
             <Quote.Quote
+              onClick={() => actions.fetchQuote()}
               quoteData={{
                 quote: states.quoteData?.quote || "Some quote here",
                 character: states.quoteData?.character || "Some character",
@@ -116,6 +117,7 @@ function App() {
             />
             <div className="flex items-center justify-between w-full">
               <Quote.Character
+                onClick={() => actions.fetchQuote()}
                 quoteData={{
                   quote: states.quoteData?.quote || "Some quote here",
                   character: states.quoteData?.character || "Some character",
@@ -123,6 +125,7 @@ function App() {
                 }}
               />
               <Quote.Game
+                onClick={() => actions.fetchQuote()}
                 quoteData={{
                   quote: states.quoteData?.quote || "Some quote here",
                   character: states.quoteData?.character || "Some character",
