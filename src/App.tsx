@@ -30,7 +30,7 @@ import { Contact } from "./components/Contact";
 import { Pomodoro } from "./components/Pomodoro";
 
 function App() {
-  const [pomodoroTime, setPomodoroTime] = useState(30);
+  const [pomodoroTime, setPomodoroTime] = useState(25 * 60);
   const [pomodoroProgress, setPomodoroProgress] = useState(0);
   const [pomodoroActive, setPomodoroActive] = useState(false);
 
@@ -39,14 +39,14 @@ function App() {
   const [focusTimes, setFocusTimes] = useState(0);
 
   useEffect(() => {
-    const progressPercentage = (pomodoroTime / 30) * 100;
+    const progressPercentage = (pomodoroTime / 25) * 60 * 100;
     setPomodoroProgress(progressPercentage);
 
     if (pomodoroActive === true) {
       if (pomodoroTime === 1) {
         setPomodoroActive(false);
         setTimeout(() => {
-          setPomodoroTime(30);
+          setPomodoroTime(25 * 60);
         }, 5000);
         setChillActive(true);
         setFocusTimes((state) => state + 1);
@@ -57,19 +57,19 @@ function App() {
     }
   }, [pomodoroTime, pomodoroActive]);
 
-  const [chillTime, setChillTime] = useState(30);
+  const [chillTime, setChillTime] = useState(5 * 60);
   const [chillProgress, setChillProgress] = useState(0);
   const [chillActive, setChillActive] = useState(false);
 
   useEffect(() => {
-    const chillPercentage = (chillTime / 30) * 100;
+    const chillPercentage = (chillTime / 5) * 60 * 100;
     setChillProgress(chillPercentage);
 
     if (chillActive === true && pomodoroActive === false) {
       if (chillTime === 1) {
         setChillActive(false);
         setTimeout(() => {
-          setChillTime(30);
+          setChillTime(5 * 60);
         }, 5000);
         if (focusRepeat) {
           setPomodoroActive(true);
