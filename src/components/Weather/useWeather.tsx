@@ -23,22 +23,22 @@ import {
 export function useWeatherCard() {
   function RandomWeatherIcon() {
     const icons = [
-      <Cloud weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudFog weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudLightning weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudMoon weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudRain weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudSnow weight="fill" className="w-[5rem] h-[5rem]" />,
-      <CloudSun weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Lightning weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Moon weight="fill" className="w-[5rem] h-[5rem]" />,
-      <MoonStars weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Rainbow weight="fill" className="w-[5rem] h-[5rem]" />,
-      <RainbowCloud weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Snowflake weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Sun weight="fill" className="w-[5rem] h-[5rem]" />,
-      <SunHorizon weight="fill" className="w-[5rem] h-[5rem]" />,
-      <Wind weight="fill" className="w-[5rem] h-[5rem]" />,
+      <Cloud weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudFog weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudLightning weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudMoon weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudRain weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudSnow weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <CloudSun weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Lightning weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Moon weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <MoonStars weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Rainbow weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <RainbowCloud weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Snowflake weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Sun weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <SunHorizon weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
+      <Wind weight="fill" className="w-[5rem] h-[5rem] transition-all ease-linear" />,
     ];
 
     const icon = Math.floor(Math.random() * icons.length);

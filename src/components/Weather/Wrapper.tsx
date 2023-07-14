@@ -1,12 +1,11 @@
 import { useWeatherCard } from "./useWeather";
 import { IGetWeatherDataResponse } from "../../data/getWeatherData";
 import { Input } from "./Input";
-import { ChangeEventHandler, ReactNode, useEffect, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 import { HasData } from "./HasData";
 import { HasntData } from "./HasntData";
 
 export interface WrapperProps {
-  children: ReactNode;
   weatherCardData: IGetWeatherDataResponse;
   citySearchvalue: string;
   handleSubmit: () => void;
@@ -18,7 +17,6 @@ export interface WrapperProps {
 }
 
 export function Wrapper({
-  children,
   weatherCardData,
   citySearchvalue,
   handleSubmit,
@@ -39,7 +37,7 @@ export function Wrapper({
   }, [weatherCardData]);
 
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex flex-col items-center justify-center h-full">
       <Input
         value={citySearchvalue}
         onChange={(e) => {
@@ -47,7 +45,6 @@ export function Wrapper({
         }}
         handleSubmit={handleSubmit}
       />
-      {children}
       {weatherCardData ? (
         <HasData
           citySearchvalue={citySearchvalue}

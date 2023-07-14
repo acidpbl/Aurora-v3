@@ -14,7 +14,7 @@ export function Weekdays({ nav }: WeekdaysProps) {
         return (
           <span
             key={index}
-            className={`w-[28.58px] text-sm font-medium ${
+            className={`w-[28.58px] transition-all ease-linear flex justify-center text-sm font-medium ${
               today === weekday && nav === 0 ? "text-violet-500" : ""
             }`}
           >

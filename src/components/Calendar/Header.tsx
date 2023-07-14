@@ -14,7 +14,9 @@ export function Header({ nav, navLeftAction, navRightAction }: HeaderProps) {
     <div className="px-8 flex justify-between items-center">
       <NavButton icon={CaretLeft} onClick={navLeftAction} />
       <span
-        className={`font-bold text-sm ${nav == 0 ? "text-violet-500" : ""}`}
+        className={`font-bold text-sm transition-all ease-linear ${
+          nav == 0 ? "text-violet-500" : ""
+        }`}
       >
         {dateDisplay}
       </span>

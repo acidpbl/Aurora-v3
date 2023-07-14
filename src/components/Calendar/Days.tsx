@@ -12,7 +12,7 @@ export function Days({ nav }: DaysProps) {
         return (
           <div
             key={index}
-            className={`flex justify-center items-center rounded-md bg-violet-200 hover:bg-violet-300 hover:text-violet-600 aspect-square ${
+            className={`flex justify-center items-center transition-all ease-linear rounded-md bg-violet-200 hover:bg-violet-300 hover:text-violet-600 aspect-square ${
               d.class === "inactive"
                 ? "bg-violet-100 text-zinc-500 hover:bg-violet-200 hover:text-zinc-500"
                 : ""

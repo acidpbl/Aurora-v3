@@ -44,7 +44,7 @@ export function Time({}: TimeProps) {
   }, []);
   return (
     <span
-      className="px-10 w-max py-6 rounded-xl bg-violet-200 text-7xl font-medium transition-all ease-linear hover:bg-violet-300 hover:text-violet-600"
+      className="w-[17rem] text-center py-6 rounded-xl bg-violet-200 text-7xl font-medium transition-all ease-linear hover:bg-violet-300 hover:text-violet-600"
       onClick={() => {
         navigator.clipboard.writeText(
           `${date.today} ${months[date.month]}, ${date.year}`

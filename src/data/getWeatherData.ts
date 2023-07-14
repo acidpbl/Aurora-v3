@@ -1,4 +1,4 @@
-import { cityWeatherDTO } from "./dto/cityWeatherDTO";
+import { cityWeatherDTO } from "./dto/cityDataDTO";
 
 export interface IGetWeatherDataResponse {
   temp: number;
@@ -30,8 +30,8 @@ export async function getWeatherData(
         pressure: data.main.pressure,
         name: data.name,
         feels_like: data.main.feels_like,
-  temp_min: data.main.temp_min,
-  temp_max: data.main.temp_max,
+        temp_min: data.main.temp_min,
+        temp_max: data.main.temp_max,
       };
     });
 

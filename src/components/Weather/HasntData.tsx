@@ -32,17 +32,20 @@ export function HasntData({
   }, [weatherCardData]);
 
   return (
-    <div className="h-full w-full flex flex-col justify-center">
+    <div className="h-full w-full flex flex-col items-center justify-center">
       {actions.SetLoadingWeather(citySearchvalue) ? (
         <div className="flex items-center justify-center">
-          <elements.CircleNotch weight="bold" className="w-[5rem] h-[5rem] animate-spin-slow [&>*]:text-violet-600" />
+          <elements.CircleNotch
+            weight="bold"
+            className="w-[5rem] h-[5rem] animate-spin-slow [&>*]:text-violet-600"
+          />
         </div>
       ) : (
         <>
           {errorHelperText.text.length > 0 ? (
             ""
           ) : (
-            <div className="flex items-center justify-center [&>*]:text-violet-200 [&>*]:hover:text-violet-300">
+            <div className="flex items-center justify-center w-fit [&>*]:text-violet-200 [&>*]:hover:text-violet-300">
               {newIcon}
             </div>
           )}
